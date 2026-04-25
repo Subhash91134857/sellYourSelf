@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import PORTFOLIO_DATA from "./data/data";
+import useActiveSection from "./hooks/useActiveSection";
+import Cursor from "./components/common/Cursor";
+import Footer from "./components/common/Footer";
+import NavBar from "./components/common/Navbar";
+import CSS from "./data/css";
+import HeroSection from "./components/Section/HeroSection";
+import AboutSection from "./components/Section/AboutSection";
+import SkillSection from "./components/Section/SkillSection";
+import ProjectsSection from "./components/Section/ProjectSection";
+import ContactSection from "./components/Section/ContactSection";
+import ExperiencesSection from "./components/Section/ExperiencesSection";
 
 function App() {
+  const active = useActiveSection(PORTFOLIO_DATA.nav);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <style>{CSS}</style>
+      <Cursor />
+      <NavBar active={active} />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <SkillSection />
+        <ProjectsSection />
+        <ExperiencesSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </>
   );
 }
 
