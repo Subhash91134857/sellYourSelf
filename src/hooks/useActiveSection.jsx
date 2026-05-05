@@ -15,7 +15,7 @@ function useActiveSection(ids) {
       if (el) obs.observe(el);
     });
     return () => obs.disconnect();
-  }, []);
+  });
   return active;
 }
 
