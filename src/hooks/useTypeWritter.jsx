@@ -5,7 +5,7 @@ function useTypewriter(phrases, speed = 70) {
   const s = useRef({ p: 0, c: 0, mode: "typing" });
   useEffect(() => {
     const tick = setInterval(() => {
-      const { p, c, mode } = s.current;
+      const { p, mode } = s.current;
       const cur = phrases[p];
       if (mode === "typing") {
         s.current.c++;
@@ -26,7 +26,7 @@ function useTypewriter(phrases, speed = 70) {
       }
     }, speed);
     return () => clearInterval(tick);
-  }, []);
+  });
   return text;
 }
 
